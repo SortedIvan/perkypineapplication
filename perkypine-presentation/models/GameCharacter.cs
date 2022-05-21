@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace models
 {
-    class GameCharacter
+    public class GameCharacter
     {
+        public string CharacterName { get; set; }
+        public string CharacterType { get; set; }
+
+        public GameCharacter(string characterName, string characterType)
+        {
+            this.CharacterType = characterType;
+            this.CharacterName = characterName;
+        }
     }
 }

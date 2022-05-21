@@ -1,3 +1,5 @@
+using business_layer.interfaces;
+using business_layer.services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +28,7 @@ namespace perkypine
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddSingleton<IGameIdeaService, GameIdeaService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

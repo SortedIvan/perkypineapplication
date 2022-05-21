@@ -2,12 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>business_layer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\data_layer\data_layer.csproj" />
-    <ProjectReference Include="..\factories\factories.csproj" />
     <ProjectReference Include="..\models\models.csproj" />
   </ItemGroup>
 
