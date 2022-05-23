@@ -16,34 +16,35 @@ namespace perkypine.Controllers
             this.gameService = gameService;
         }
 
-        [HttpGet]
+        [HttpGet("api/gameideas")]
         public List<GameIdea> GetGameIdeas()
         {
             return this.gameService.GetGameIdeas();
         }
 
-        [HttpGet("{gameName}")]
+        [HttpGet("api/{gameName}")]
         public GameIdea GetGameIdeaByName(string gameName)
         {
             return this.gameService.GetGameIdeaByName(gameName);
         }
 
-        [HttpPost]
+        [HttpPost("api/creategame")]
         public void CreateGameIdea(string gameName)
         {
             this.gameService.CreateAndSaveGameIdea(gameName);
         }
 
-        [HttpDelete("deletegamename/{gameName}")]
-        public void DeleteGameIdeaByName(string gameName)
+        [HttpDelete("api/deletegameid/{gameID}")]
+        public void DeleteGameIdeaByName(Guid gameID)
         {
-            this.gameService.DeleteGameIdeaByName(gameName);
+            this.gameService.DeleteGameByID(gameID);
         }
 
-        [HttpPut("{gameName}")]
-        public void EditGameIdeaByName(string gameName, string newGameName)
+        [HttpPut("api/editgamebyid/{gameID}")]
+        public JsonResult EditGameIdeaByName(Guid gameID, string newGameName)
         {
-            this.gameService.EditGameIdeaByName(gameName, newGameName);
+            this.gameService.EditGameIdeaByGameID(gameID, newGameName);
+            return new JsonResult($"Game name changed to: {newGameName}");
         }
 
         [HttpDelete("deletegameid/{gameID}")]

@@ -36,15 +36,15 @@ namespace business_layer.services
 
         }
 
-        public void DeleteGameIdeaByName(string gameIdeaName)
+        public void DeleteGameIdeaByID(Guid gameID)
         {
             this.dataStorage.GameIdeas.Remove(
-            this.dataStorage.GetGameIdeaByName(gameIdeaName));
+            this.dataStorage.GetGameIdeaById(gameID));
         }
 
-        public void EditGameIdeaByName(string gameIdeaName, string newGameIdeaName)
+        public void EditGameIdeaByGameID(Guid gameID, string newGameIdeaName)
         {
-            this.dataStorage.GetGameIdeaByName(gameIdeaName).GameIdeaName = newGameIdeaName;
+            this.dataStorage.GetGameIdeaById(gameID).GameIdeaName = newGameIdeaName;
         }
 
         public GameIdea GetGameIdeaById(Guid gameIdeaId)

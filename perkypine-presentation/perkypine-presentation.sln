@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "factories", "factories\fact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-testing", "unit-testing\unit-testing.csproj", "{CA62320E-9E59-48C2-ADCD-7D6EB4C09B66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "helper-classes", "helper-classes\helper-classes.csproj", "{D436D130-DE70-4DD7-B8BC-4B8D288982BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{CA62320E-9E59-48C2-ADCD-7D6EB4C09B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA62320E-9E59-48C2-ADCD-7D6EB4C09B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA62320E-9E59-48C2-ADCD-7D6EB4C09B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D436D130-DE70-4DD7-B8BC-4B8D288982BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D436D130-DE70-4DD7-B8BC-4B8D288982BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D436D130-DE70-4DD7-B8BC-4B8D288982BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D436D130-DE70-4DD7-B8BC-4B8D288982BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

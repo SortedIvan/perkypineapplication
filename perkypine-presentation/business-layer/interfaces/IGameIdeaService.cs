@@ -8,8 +8,8 @@ namespace business_layer.interfaces
         List<GameIdea> GetGameIdeas();
         GameIdea GetGameIdeaByName(string gameIdea);
         void CreateAndSaveGameIdea(string gameIdeaName);
-        void DeleteGameIdeaByName(string gameIdeaName);
-        void EditGameIdeaByName(string gameIdeaName, string newGameIdeaName);
+        void DeleteGameIdeaByID(Guid gameID);
+        void EditGameIdeaByGameID(Guid gameID, string newGameIdeaName);
         bool DeleteGameByID(Guid gameID);
         GameIdea GetGameIdeaById(Guid gameIdeaId);
     }
