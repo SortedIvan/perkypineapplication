@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace perkypine.Controllers
 {
@@ -30,14 +28,13 @@ namespace perkypine.Controllers
             return this.gameService.GetGameIdeaByName(gameName);
         }
 
-
         [HttpPost]
         public void CreateGameIdea(string gameName)
         {
             this.gameService.CreateAndSaveGameIdea(gameName);
         }
 
-        [HttpDelete("{gameName}")]
+        [HttpDelete("deletegamename/{gameName}")]
         public void DeleteGameIdeaByName(string gameName)
         {
             this.gameService.DeleteGameIdeaByName(gameName);
@@ -47,6 +44,17 @@ namespace perkypine.Controllers
         public void EditGameIdeaByName(string gameName, string newGameName)
         {
             this.gameService.EditGameIdeaByName(gameName, newGameName);
+        }
+
+        [HttpDelete("deletegameid/{gameID}")]
+        public JsonResult DeleteGameByID(Guid gameID)
+        { 
+            bool result = this.gameService.DeleteGameByID(gameID);
+            if (result)
+            {
+                return new JsonResult("Game deleted successfully");
+            }
+            return new JsonResult("Game was not deleted");
         }
     }
 

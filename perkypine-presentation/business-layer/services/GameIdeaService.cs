@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using business_layer.interfaces;
 using data_layer.Data;
 using factories;
 using models;
+using System.Linq;
 
 namespace business_layer.services
 {
@@ -22,6 +24,18 @@ namespace business_layer.services
             this.dataStorage.AddGameIdea(this.gameIdeaFactory.CreateGameIdea(gameName));
         }
 
+        public bool DeleteGameByID(Guid gameID)
+        {
+            if(GetGameIdeaById(gameID) != null)
+            {
+                this.dataStorage.GameIdeas.Remove(
+                dataStorage.GameIdeas.FirstOrDefault(gameIdeaToRemove => gameIdeaToRemove.GameIdeaID == gameID));
+                return true;
+            }
+            return false;
+
+        }
+
         public void DeleteGameIdeaByName(string gameIdeaName)
         {
             this.dataStorage.GameIdeas.Remove(
@@ -31,6 +45,11 @@ namespace business_layer.services
         public void EditGameIdeaByName(string gameIdeaName, string newGameIdeaName)
         {
             this.dataStorage.GetGameIdeaByName(gameIdeaName).GameIdeaName = newGameIdeaName;
+        }
+
+        public GameIdea GetGameIdeaById(Guid gameIdeaId)
+        {
+            return this.dataStorage.GetGameIdeaById(gameIdeaId);
         }
 
         public GameIdea GetGameIdeaByName(string gameIdea)

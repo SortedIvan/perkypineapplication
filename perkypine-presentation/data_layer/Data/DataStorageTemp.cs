@@ -45,6 +45,11 @@ namespace data_layer.Data
             
         }
 
+        public GameIdea GetGameIdeaById(Guid gameIdea)
+        {
+            return this.GameIdeas.FirstOrDefault(x => x.GameIdeaID == gameIdea);
+        }
+
 
     }
 }

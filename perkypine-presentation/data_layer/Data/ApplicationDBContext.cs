@@ -23,8 +23,6 @@ namespace data_layer.Data
         //                  .AddFilter(level => level >= LogLevel.Information)))
         //    .EnableSensitiveDataLogging()
         //    .EnableDetailedErrors();
-
-
         //}
     }
 }
