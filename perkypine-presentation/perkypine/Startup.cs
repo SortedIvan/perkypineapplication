@@ -22,6 +22,7 @@ namespace perkypine
         {
             services.AddSingleton<IGameIdeaService, GameIdeaService>();
             services.AddControllers();
+            services.AddHttpClient();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "perkypine", Version = "v1" });
