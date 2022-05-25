@@ -12,5 +12,7 @@ namespace business_layer.interfaces
         void EditGameIdeaByGameID(Guid gameID, string newGameIdeaName);
         bool DeleteGameByID(Guid gameID);
         GameIdea GetGameIdeaById(Guid gameIdeaId);
+        void TestMethod(Guid guid);
+        GameIdea TestDatabase(Guid gameIdeaID);
     }
 }

@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "business-layer", "business-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "factories", "factories\factories.csproj", "{E1626F97-EE9E-4D7C-B385-920DB52662FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-testing", "unit-testing\unit-testing.csproj", "{CA62320E-9E59-48C2-ADCD-7D6EB4C09B66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "unit-testing", "unit-testing\unit-testing.csproj", "{CA62320E-9E59-48C2-ADCD-7D6EB4C09B66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "helper-classes", "helper-classes\helper-classes.csproj", "{D436D130-DE70-4DD7-B8BC-4B8D288982BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "helper-classes", "helper-classes\helper-classes.csproj", "{D436D130-DE70-4DD7-B8BC-4B8D288982BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

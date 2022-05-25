@@ -11,9 +11,13 @@ namespace data_layer.Data
         private GameIdea gameIdeaTest = new GameIdea("test1");
         private GameIdea gameIdeaTest2 = new GameIdea("test2");
 
+        private GameCharacter gameChar1 = new GameCharacter("Tony", "Cool dude");
+
+
         public DataStorageTemp()
         {
             this.GameIdeas = new List<GameIdea>();
+            gameIdeaTest.GameCharacters.Add(gameChar1);
             this.GameIdeas.Add(gameIdeaTest);
             this.GameIdeas.Add(gameIdeaTest2);
         }
@@ -47,6 +51,9 @@ namespace data_layer.Data
         {
             return this.GameIdeas.FirstOrDefault(x => x.GameIdeaID == gameIdea);
         }
+
+
+
 
 
     }

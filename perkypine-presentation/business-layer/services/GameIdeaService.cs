@@ -12,11 +12,15 @@ namespace business_layer.services
     {
         private GameIdeaFactory gameIdeaFactory;
         private DataStorageTemp dataStorage;
-
+        private DatabaseFactory DBFactory;
+        private PerkyPineDB DB;
         public GameIdeaService()
         {
             this.gameIdeaFactory = new GameIdeaFactory();
             this.dataStorage = new DataStorageTemp();
+            this.DBFactory = new DatabaseFactory();
+            this.DB = DBFactory.CreateDB();
+
         }
 
         public void CreateAndSaveGameIdea(string gameName)
@@ -34,6 +38,11 @@ namespace business_layer.services
             }
             return false;
 
+        }
+
+        public void TestMethod(Guid guid)
+        {
+            this.dataStorage.GetGameIdeaById(guid).GameCharacters.Add(new GameCharacter("hi", "hi"));
         }
 
         public void DeleteGameIdeaByID(Guid gameID)
@@ -62,5 +71,9 @@ namespace business_layer.services
             return dataStorage.GetGameIdeas();
         }
 
+        public GameIdea TestDatabase(Guid gameIdeaID)
+        {
+            return DB.GetGameIdea(gameIdeaID);
+        }
     }
 }
