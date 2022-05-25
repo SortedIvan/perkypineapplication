@@ -3,11 +3,11 @@
     public class GameCharacter
     {
         public string CharacterName { get; set; }
-        public string CharacterType { get; set; }
+        public string CharacterLore { get; set; }
 
-        public GameCharacter(string characterName, string characterType)
+        public GameCharacter(string characterName, string characterLore)
         {
-            this.CharacterType = characterType;
+            this.CharacterLore = characterLore;
             this.CharacterName = characterName;
         }
     }

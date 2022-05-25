@@ -11,9 +11,11 @@ namespace perkypine.Controllers
     public class GameIdeasController : ControllerBase
     {
         private readonly IGameIdeaService gameService;
-        public GameIdeasController(IGameIdeaService gameService)
+        private readonly IGameCharacterService gameCharacterService;
+        public GameIdeasController(IGameIdeaService gameService, IGameCharacterService gameCharacterService)
         {
             this.gameService = gameService;
+            this.gameCharacterService = gameCharacterService;
         }
 
         [HttpGet("api/gameideas")]
@@ -28,11 +30,11 @@ namespace perkypine.Controllers
             return this.gameService.GetGameIdeaByName(gameName);
         }
 
-        [HttpPost("api/creategame")]
-        public void CreateGameIdea(string gameName)
-        {
-            this.gameService.CreateAndSaveGameIdea(gameName);
-        }
+        //[HttpPost("api/creategame")]
+        //public void CreateGameIdea(string gameName)
+        //{
+        //    this.gameService.CreateAndSaveGameIdea(gameName);
+        //}
 
         [HttpDelete("api/deletegameid/{gameID}")]
         public void DeleteGameIdeaByName(Guid gameID)
@@ -47,15 +49,27 @@ namespace perkypine.Controllers
             return new JsonResult($"Game name changed to: {newGameName}");
         }
 
-        [HttpDelete("deletegameid/{gameID}")]
-        public JsonResult DeleteGameByID(Guid gameID)
-        { 
-            bool result = this.gameService.DeleteGameByID(gameID);
-            if (result)
+        //[HttpDelete("api/deletegameid/{gameID}")]
+        //public JsonResult DeleteGameByID(Guid gameID)
+        //{
+        //    bool result = this.gameService.DeleteGameByID(gameID);
+        //    if (result)
+        //    {
+        //        return new JsonResult("Game deleted successfully");
+        //    }
+        //    return new JsonResult("Game was not deleted");
+        //}
+
+        [HttpPut("api/addcharactertogame")]
+        public JsonResult AddCharactersToGame(Guid gameID)
+        {
+            if (this.gameService.GetGameIdeaById(gameID) != null)
             {
-                return new JsonResult("Game deleted successfully");
+                this.gameCharacterService.CreateAndSaveGameCharacterToGame(gameID);
+                return new JsonResult($"Character was added to game: {this.gameService.GetGameIdeaById(gameID)}");
             }
-            return new JsonResult("Game was not deleted");
+            return new JsonResult($"No game was found with id: {gameID}");
+
         }
     }
 

@@ -36,7 +36,7 @@ namespace helper_classes
         public async Task<Root> GetRandomName(bool fullName, string gender)
         {
             // Default request
-            
+
             var request = new HttpRequestMessage(HttpMethod.Get, "https://randomuser.me/api/");
             switch (gender)
             {

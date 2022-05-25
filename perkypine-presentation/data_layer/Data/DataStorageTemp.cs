@@ -11,21 +11,25 @@ namespace data_layer.Data
         private GameIdea gameIdeaTest = new GameIdea("test1");
         private GameIdea gameIdeaTest2 = new GameIdea("test2");
 
+        private GameCharacter gameChar1 = new GameCharacter("Tony", "Cool dude");
+
+
         public DataStorageTemp()
         {
             this.GameIdeas = new List<GameIdea>();
+            gameIdeaTest.GameCharacters.Add(gameChar1);
             this.GameIdeas.Add(gameIdeaTest);
             this.GameIdeas.Add(gameIdeaTest2);
         }
 
-        public void AddGameIdea(GameIdea gameIdea) 
+        public void AddGameIdea(GameIdea gameIdea)
         {
-            if(gameIdea != null)
+            if (gameIdea != null)
             {
                 this.GameIdeas.Add(gameIdea);
             }
             else { throw new Exception("Empty object exception!"); }
-            
+
         }
 
         public List<GameIdea> GetGameIdeas()
@@ -40,7 +44,7 @@ namespace data_layer.Data
 
         public void DeleteGameIdeaByName(string gameIdeaName)
         {
-            
+
         }
 
         public GameIdea GetGameIdeaById(Guid gameIdea)

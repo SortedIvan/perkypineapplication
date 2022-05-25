@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace models
 {
     public class GameIdea
@@ -7,7 +9,7 @@ namespace models
         public string GameIdeaName { get; set; }
         //public GameWorld GameWorld { get; set; }
         //public GameLore GameLore { get; set; }
-        //public List<GameCharacter> GameCharacters {get; set;}
+        public List<GameCharacter> GameCharacters { get; set; }
 
         public GameIdea(string gameName)
         {
