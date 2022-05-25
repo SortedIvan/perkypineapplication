@@ -20,6 +20,6 @@ namespace factories
         {
             string fullName = $"{this.nameAlgorithm.FirstNameGenerator()} {this.nameAlgorithm.SecondNameGenerator()}";
             return new GameCharacter("test", "test");
-        } 
+        }
     }
 }

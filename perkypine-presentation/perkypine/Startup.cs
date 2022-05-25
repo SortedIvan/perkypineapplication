@@ -22,6 +22,7 @@ namespace perkypine
         {
             services.AddSingleton<IGameCharacterService, GameCharacterService>();
             services.AddSingleton<IGameIdeaService, GameIdeaService>();
+            services.AddSingleton<IGameCharacterService, GameCharacterService>();
             services.AddControllers();
             services.AddHttpClient();
             services.AddSwaggerGen(c =>

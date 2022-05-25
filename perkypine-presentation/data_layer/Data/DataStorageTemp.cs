@@ -22,14 +22,14 @@ namespace data_layer.Data
             this.GameIdeas.Add(gameIdeaTest2);
         }
 
-        public void AddGameIdea(GameIdea gameIdea) 
+        public void AddGameIdea(GameIdea gameIdea)
         {
-            if(gameIdea != null)
+            if (gameIdea != null)
             {
                 this.GameIdeas.Add(gameIdea);
             }
             else { throw new Exception("Empty object exception!"); }
-            
+
         }
 
         public List<GameIdea> GetGameIdeas()
@@ -44,7 +44,7 @@ namespace data_layer.Data
 
         public void DeleteGameIdeaByName(string gameIdeaName)
         {
-            
+
         }
 
         public GameIdea GetGameIdeaById(Guid gameIdea)

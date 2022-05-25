@@ -30,11 +30,11 @@ namespace perkypine.Controllers
             return this.gameService.GetGameIdeaByName(gameName);
         }
 
-        [HttpPost("api/creategame")]
-        public void CreateGameIdea(string gameName)
-        {
-            this.gameService.CreateAndSaveGameIdea(gameName);
-        }
+        //[HttpPost("api/creategame")]
+        //public void CreateGameIdea(string gameName)
+        //{
+        //    this.gameService.CreateAndSaveGameIdea(gameName);
+        //}
 
         //[HttpDelete("api/deletegameid/{gameID}")]
         //public void DeleteGameIdeaByName(Guid gameID)
@@ -55,9 +55,11 @@ namespace perkypine.Controllers
             bool result = this.gameService.DeleteGameByID(gameID);
             if (result)
             {
-                return new JsonResult("Game deleted successfully");
+                this.gameCharacterService.CreateAndSaveGameCharacterToGame(gameID);
+                return new JsonResult($"Character was added to game: {this.gameService.GetGameIdeaById(gameID)}");
             }
-            return new JsonResult("Game was not deleted");
+            return new JsonResult($"No game was found with id: {gameID}");
+
         }
 
         [HttpPut("api/addcharactertogame")]

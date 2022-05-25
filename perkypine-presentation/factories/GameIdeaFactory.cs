@@ -14,7 +14,7 @@ namespace factories
             this.clientFactory = new ClientFactory();
             this.apiConnector = new ApiConnector(clientFactory);
         }
-        
+
 
         public GameIdea CreateGameIdea(string gameIdeaName)
         {
