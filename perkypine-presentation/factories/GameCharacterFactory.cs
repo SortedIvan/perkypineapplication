@@ -1,4 +1,5 @@
-﻿using helper_classes.GameCharacterHelper;
+﻿using helper_classes;
+using helper_classes.GameCharacterHelper;
 using models;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,19 @@ namespace factories
     public class GameCharacterFactory
     {
         GameCharacterNameAlgorithm nameAlgorithm;
+        GameCharacterLoreAlgorithm loreAlgorithm;
         public GameCharacterFactory()
         {
             this.nameAlgorithm = new GameCharacterNameAlgorithm();
+            this.loreAlgorithm = new GameCharacterLoreAlgorithm();
         }
+
 
         public GameCharacter CreateGameCharacter()
         {
             string fullName = $"{this.nameAlgorithm.FirstNameGenerator()} {this.nameAlgorithm.SecondNameGenerator()}";
-            return new GameCharacter(fullName, "test");
+            string characterLore = loreAlgorithm.HairBuilder();
+            return new GameCharacter(fullName, characterLore);
         }
     }
 }

@@ -104,6 +104,9 @@ namespace perkypine.Controllers
             return null;
         }
 
+
+
+        // Returning a random idea API (highest priority as of right now)
         [HttpGet("api/getrandomgameidea/{gameName}")]
         public GameIdea GetRandomGameIdea(string gameName)
         {
