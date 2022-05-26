@@ -103,6 +103,14 @@ namespace perkypine.Controllers
             }
             return null;
         }
+
+        [HttpGet("api/getrandomgameidea/{gameName}")]
+        public GameIdea GetRandomGameIdea(string gameName)
+        {
+           GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
+           randomGame.GameCharacters = this.gameCharacterService.CreateAndReturnAddableCharacters();
+           return randomGame;
+        }
     }
 
 }

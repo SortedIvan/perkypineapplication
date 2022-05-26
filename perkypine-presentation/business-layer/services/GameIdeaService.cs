@@ -75,5 +75,10 @@ namespace business_layer.services
         {
             return DB.GetGameIdea(gameIdeaID);
         }
+
+        public GameIdea CreateReturnableGameIdea(string gameIdeaName)
+        {
+            return gameIdeaFactory.CreateGameIdea(gameIdeaName);
+        }
     }
 }

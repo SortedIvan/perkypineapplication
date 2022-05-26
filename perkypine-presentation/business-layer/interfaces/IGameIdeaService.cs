@@ -14,5 +14,6 @@ namespace business_layer.interfaces
         GameIdea GetGameIdeaById(Guid gameIdeaId);
         void TestMethod(Guid guid);
         GameIdea TestDatabase(Guid gameIdeaID);
+        GameIdea CreateReturnableGameIdea(string gameIdeaName);
     }
 }

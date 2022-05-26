@@ -19,7 +19,7 @@ namespace factories
         public GameCharacter CreateGameCharacter()
         {
             string fullName = $"{this.nameAlgorithm.FirstNameGenerator()} {this.nameAlgorithm.SecondNameGenerator()}";
-            return new GameCharacter("test", "test");
+            return new GameCharacter(fullName, "test");
         }
     }
 }

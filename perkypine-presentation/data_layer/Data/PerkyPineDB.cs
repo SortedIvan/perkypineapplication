@@ -92,7 +92,7 @@ namespace data_layer.Data
                 using (connection)
                 {
                     connection.Open();
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlCommand command = new MySqlCommand(query, this.connection))
                     {
                         command.Parameters.AddWithValue("@gameIdeaID", gameIdeaID);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -100,7 +100,7 @@ namespace data_layer.Data
 
                             while (reader.Read())
                             {
-                                gameCharacters.Add(new GameCharacter(gameIdeaID,reader.GetString(2), reader.GetString(3)));
+                                gameCharacters.Add(new GameCharacter(gameIdeaID, reader.GetString(2), reader.GetString(3)));
                                 gameIdeaName = reader.GetString(1);
 
                             }

@@ -12,5 +12,7 @@ namespace business_layer.interfaces
         List<GameCharacter> GetGameCharacters();
         GameCharacter GetGameCharacter();
         void CreateAndSaveGameCharacterToGame(Guid gameID);
+        // Returnable characters, saving to be added
+        List<GameCharacter> CreateAndReturnAddableCharacters();
     }
 }
