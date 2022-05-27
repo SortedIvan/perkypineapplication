@@ -26,9 +26,34 @@ namespace helper_classes.GameCharacterHelper
             string[] hairstyles = this.fileReader.GetHairStyles();
             string[] haircolors = this.fileReader.GetHairColor();
 
-            hairStyle += $"They have {haircolors[randomHairColorInt]}, {hairstyles[randomHairStyleInt]}";
+            hairStyle += $"They have {haircolors[randomHairColorInt]}, {hairstyles[randomHairStyleInt]} hairstyle";
             return hairStyle;
         }
 
+        #region Character jobs builders
+        public string CharacterSpaceJobBuilder()
+        {
+            Random randomSpaceJob = new Random();
+            int randomSpaceJobInt = randomSpaceJob.Next(1, 19);
+
+            return $"Their occupation is {this.fileReader.GetSpaceJobs()[randomSpaceJobInt]}.";
+        }
+
+        public string CharacterFantasyJobBuilder()
+        {
+            Random randomFantasyJob = new Random();
+            int randomFantasyJobInt = randomFantasyJob.Next(1, 36);
+
+            return $"Their occupation is {this.fileReader.GetFantasyJobs()[randomFantasyJobInt]}.";
+        }
+
+        public string CharacterScifiJobBuilder()
+        {
+            Random randomSciFiJob = new Random();
+            int randomSciFiJobInt = randomSciFiJob.Next(1, 74);
+
+            return $"Their occupation is {this.fileReader.GetScifiJobs()[randomSciFiJobInt]}.";
+            #endregion
+        }
     }
 }

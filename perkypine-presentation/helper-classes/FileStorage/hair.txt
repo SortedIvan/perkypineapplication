@@ -8,7 +8,7 @@ pigtail
 curly
 dreadlocks
 mohawk
-long wavy hair
+long wavy
 man bun
 combover
 plaits
@@ -50,7 +50,7 @@ flyaway
 french braids
 french twist
 fringe
-Jheri curl
+jheri curl
 kinked
 layered
 long layers
@@ -64,7 +64,7 @@ pin curls
 plaited
 pompadour
 ponytail
-Rasta
+rasta
 rat tail
 ratted
 ringlets

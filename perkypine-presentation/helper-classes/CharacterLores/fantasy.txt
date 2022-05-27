@@ -1,0 +1,39 @@
+﻿enchanter
+nobleperson
+shaman
+gentleman thief
+rogue
+necromancer-in-training
+sorceror
+dragon
+monk
+nomad
+swordsmaster
+monsterologist
+goblin
+warlord
+ranger
+archer
+bomb-carrier
+centaur
+mage
+empress
+lord
+vampire
+witch
+witch hunter
+vampire hunter
+peasant
+summoner-in-training
+goods merchant
+blacksmith
+charlattan
+ruffian
+enchanter
+troll hunter
+assasin
+soldier
+thief
+apprentice
+
+

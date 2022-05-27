@@ -105,7 +105,7 @@ namespace perkypine.Controllers
         }
 
 
-
+        #region Different types of random games API's
         // Returning a random idea API (highest priority as of right now)
         [HttpGet("api/getrandomgameidea/{gameName}")]
         public GameIdea GetRandomGameIdea(string gameName)
@@ -114,6 +114,7 @@ namespace perkypine.Controllers
            randomGame.GameCharacters = this.gameCharacterService.CreateAndReturnAddableCharacters();
            return randomGame;
         }
+        #endregion
     }
 
 }
