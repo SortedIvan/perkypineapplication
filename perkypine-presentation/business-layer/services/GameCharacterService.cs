@@ -18,15 +18,6 @@ namespace business_layer.services
             this.gameCharacterFactory = new GameCharacterFactory();
         }
 
-        public List<GameCharacter> CreateAndReturnAddableCharacters()
-        {
-            List<GameCharacter> gameCharactersToReturn = new List<GameCharacter>();
-            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateGameCharacter());
-            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateGameCharacter());
-            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateGameCharacter());
-            return gameCharactersToReturn;
-        }
-
         public void CreateAndSaveGameCharacterToGame(Guid gameID)
         {
             //Method that gets the game by its ID and creates and adds a game character object
@@ -44,6 +35,16 @@ namespace business_layer.services
         {
             throw new NotImplementedException();
         }
+
+        public List<GameCharacter> CreateAndReturnAddableCharacters()
+        {
+            List<GameCharacter> gameCharactersToReturn = new List<GameCharacter>();
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateGameCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateGameCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateGameCharacter());
+            return gameCharactersToReturn;
+        }
+
 
     }
 }
