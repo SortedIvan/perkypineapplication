@@ -36,6 +36,7 @@ namespace business_layer.services
             throw new NotImplementedException();
         }
 
+        #region Random character creation - PRIORITY
         public List<GameCharacter> CreateAndReturnAddableCharacters()
         {
             List<GameCharacter> gameCharactersToReturn = new List<GameCharacter>();
@@ -44,6 +45,36 @@ namespace business_layer.services
             gameCharactersToReturn.Add(this.gameCharacterFactory.CreateGameCharacter());
             return gameCharactersToReturn;
         }
+
+        public List<GameCharacter> CreateSpaceCharacters()
+        {
+            List<GameCharacter> gameCharactersToReturn = new List<GameCharacter>();
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateSpaceCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateSpaceCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateSpaceCharacter());
+            return gameCharactersToReturn;
+        }
+
+        public List<GameCharacter> CreateSciFiCharacters()
+        {
+            List<GameCharacter> gameCharactersToReturn = new List<GameCharacter>();
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateSciFiCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateSciFiCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateSciFiCharacter());
+            return gameCharactersToReturn;
+        }
+
+        public List<GameCharacter> CreateFantasyCharacters()
+        {
+            List<GameCharacter> gameCharactersToReturn = new List<GameCharacter>();
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateFantasyCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateFantasyCharacter());
+            gameCharactersToReturn.Add(this.gameCharacterFactory.CreateFantasyCharacter());
+            return gameCharactersToReturn;
+        }
+
+
+        #endregion
 
 
     }

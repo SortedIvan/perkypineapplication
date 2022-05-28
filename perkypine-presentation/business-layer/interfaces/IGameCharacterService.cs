@@ -14,5 +14,8 @@ namespace business_layer.interfaces
         void CreateAndSaveGameCharacterToGame(Guid gameID);
         // Returnable characters, saving to be added
         List<GameCharacter> CreateAndReturnAddableCharacters();
+        List<GameCharacter> CreateSpaceCharacters();
+        List<GameCharacter> CreateSciFiCharacters();
+        List<GameCharacter> CreateFantasyCharacters();
     }
 }

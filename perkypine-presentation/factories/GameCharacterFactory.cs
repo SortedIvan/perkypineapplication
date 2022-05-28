@@ -26,5 +26,31 @@ namespace factories
             string characterLore = loreAlgorithm.HairBuilder();
             return new GameCharacter(fullName, characterLore);
         }
+
+        #region Character creation based on game category
+        public GameCharacter CreateSpaceCharacter()
+        {
+            string fullName = nameAlgorithm.SpaceCharacterNameGenerator();
+            string characterHair = loreAlgorithm.HairBuilder();
+            string characterJob = loreAlgorithm.CharacterSpaceJobBuilder();
+            return new GameCharacter(fullName, $"{characterHair} {characterJob}");
+        }
+
+        public GameCharacter CreateFantasyCharacter()
+        {
+            string fullName = nameAlgorithm.FantasyNameGenerator();
+            string characterHair = loreAlgorithm.HairBuilder();
+            string characterJob = loreAlgorithm.CharacterFantasyJobBuilder();
+            return new GameCharacter(fullName, $"{characterHair} {characterJob}");
+        }
+
+        public GameCharacter CreateSciFiCharacter()
+        {
+            string fullName = nameAlgorithm.SciFiNameGenerator();
+            string characterHair = loreAlgorithm.HairBuilder();
+            string characterJob = loreAlgorithm.CharacterScifiJobBuilder();
+            return new GameCharacter(fullName, $"{characterHair} {characterJob}");
+        }
+        #endregion
     }
 }
