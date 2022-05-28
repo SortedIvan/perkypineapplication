@@ -114,6 +114,30 @@ namespace perkypine.Controllers
            randomGame.GameCharacters = this.gameCharacterService.CreateAndReturnAddableCharacters();
            return randomGame;
         }
+
+        [HttpGet("api/getrandomspacegame/{gameName}")]
+        public GameIdea GetRandomSpaceGameIdea(string gameName)
+        {
+            GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
+            randomGame.GameCharacters = this.gameCharacterService.CreateSpaceCharacters();
+            return randomGame;
+        }
+
+        [HttpGet("api/getrandomfantasygame/{gameName}")]
+        public GameIdea GetRandomFantasyGameIdea(string gameName)
+        {
+            GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
+            randomGame.GameCharacters = this.gameCharacterService.CreateFantasyCharacters();
+            return randomGame;
+        }
+
+        [HttpGet("api/getrandomscifigame/{gameName}")]
+        public GameIdea GetRandomSciFiGameIdea(string gameName)
+        {
+            GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
+            randomGame.GameCharacters = this.gameCharacterService.CreateSciFiCharacters();
+            return randomGame;
+        }
         #endregion
     }
 

@@ -26,7 +26,7 @@ namespace helper_classes.GameCharacterHelper
             string[] hairstyles = this.fileReader.GetHairStyles();
             string[] haircolors = this.fileReader.GetHairColor();
 
-            hairStyle += $"They have {haircolors[randomHairColorInt]}, {hairstyles[randomHairStyleInt]} hairstyle";
+            hairStyle += $"They have {haircolors[randomHairColorInt]}, {hairstyles[randomHairStyleInt]} hairstyle.";
             return hairStyle;
         }
 
