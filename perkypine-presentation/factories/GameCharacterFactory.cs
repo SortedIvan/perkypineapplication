@@ -33,7 +33,8 @@ namespace factories
             string fullName = nameAlgorithm.SpaceCharacterNameGenerator();
             string characterHair = loreAlgorithm.HairBuilder();
             string characterJob = loreAlgorithm.CharacterSpaceJobBuilder();
-            return new GameCharacter(fullName, $"{characterHair} {characterJob}");
+            string characterTraits = loreAlgorithm.CharacteristicsBuilder();
+            return new GameCharacter(fullName, $"{characterHair} {characterJob} {characterTraits}");
         }
 
         public GameCharacter CreateFantasyCharacter()
@@ -41,7 +42,8 @@ namespace factories
             string fullName = nameAlgorithm.FantasyNameGenerator();
             string characterHair = loreAlgorithm.HairBuilder();
             string characterJob = loreAlgorithm.CharacterFantasyJobBuilder();
-            return new GameCharacter(fullName, $"{characterHair} {characterJob}");
+            string characterTraits = loreAlgorithm.CharacteristicsBuilder();
+            return new GameCharacter(fullName, $"{characterHair} {characterJob} {characterTraits}");
         }
 
         public GameCharacter CreateSciFiCharacter()
@@ -49,7 +51,8 @@ namespace factories
             string fullName = nameAlgorithm.SciFiNameGenerator();
             string characterHair = loreAlgorithm.HairBuilder();
             string characterJob = loreAlgorithm.CharacterScifiJobBuilder();
-            return new GameCharacter(fullName, $"{characterHair} {characterJob}");
+            string characterTraits = loreAlgorithm.CharacteristicsBuilder();
+            return new GameCharacter(fullName, $"{characterHair} {characterJob} {characterTraits}");
         }
         #endregion
     }

@@ -42,7 +42,7 @@ namespace helper_classes.GameCharacterHelper
         public string CharacterFantasyJobBuilder()
         {
             Random randomFantasyJob = new Random();
-            int randomFantasyJobInt = randomFantasyJob.Next(1, 36);
+            int randomFantasyJobInt = randomFantasyJob.Next(1, 70);
 
             return $"Their occupation is {this.fileReader.GetFantasyJobs()[randomFantasyJobInt]}.";
         }
@@ -53,7 +53,31 @@ namespace helper_classes.GameCharacterHelper
             int randomSciFiJobInt = randomSciFiJob.Next(1, 74);
 
             return $"Their occupation is {this.fileReader.GetScifiJobs()[randomSciFiJobInt]}.";
-            #endregion
+            
         }
+        #endregion
+
+        #region Character characteristics generators
+        public string CharacteristicsBuilder()
+        {
+            Random randomCharacteristicTrait = new Random();
+            Random randomKeySentence = new Random();
+
+            int randomCharacteristicTraitInt1 = randomCharacteristicTrait.Next(1, 146);
+            int randomCharacteristicTrainInt2 = randomCharacteristicTrait.Next(1, 146);
+            int randomKeySentenceInt = randomKeySentence.Next(1, 5);
+
+            while(randomCharacteristicTraitInt1 == randomCharacteristicTrainInt2)
+            {
+                randomCharacteristicTraitInt1 = randomCharacteristicTrait.Next(1, 146);
+            }
+
+            return $"{this.fileReader.GetGeneralCharacterTraitsKeySentences()[randomKeySentenceInt]} " +
+                $"{this.fileReader.GetGeneralCharacterTraits()[randomCharacteristicTraitInt1]} and " +
+                $"{this.fileReader.GetGeneralCharacterTraits()[randomCharacteristicTrainInt2]} are predominant about them.";
+        }
+
+
+        #endregion
     }
 }

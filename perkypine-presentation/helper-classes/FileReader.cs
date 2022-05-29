@@ -48,5 +48,20 @@ namespace helper_classes
             return fantasyjobs;
         }
         #endregion
+
+        #region Character characteristics region
+        public string[] GetGeneralCharacterTraits()
+        {
+            string[] generaltraits = System.IO.File.ReadAllLines(@"C:\PerkyPine\perkypineapplication\perkypine-presentation\helper-classes\GameCharacterStorage\generalcharacteristics.txt");
+            return generaltraits;
+        }
+
+        public string[] GetGeneralCharacterTraitsKeySentences()
+        {
+            string[] keysentences = System.IO.File.ReadAllLines(@"C:\PerkyPine\perkypineapplication\perkypine-presentation\helper-classes\GameCharacterStorage\keysentencescharacter1.txt");
+            return keysentences;
+        }
+
+        #endregion
     }
 }

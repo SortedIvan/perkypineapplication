@@ -35,5 +35,38 @@ assasin
 soldier
 thief
 apprentice
-
+cleric
+dreamwalker
+stormsinger
+valkyrie
+dark warden
+hfartrigr
+moon knight
+sunblade
+nighthunter
+bladedancer
+mooneater
+druid
+chaosbringer
+warlord
+forge master
+aletra
+bearer
+wolf rider
+chaos rival
+bloodweaver
+pathfinder
+champion
+doomfighter
+voyager
+nightevil
+equilibrium
+silent judicator
+summon master
+duelist
+mortus
+bulletdancer
+ghostwalker
+turtleback
+sentinel
 
