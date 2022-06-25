@@ -30,17 +30,6 @@ namespace perkypine.Controllers
             return this.gameService.GetGameIdeaByName(gameName);
         }
 
-        //[HttpPost("api/creategame")]
-        //public void CreateGameIdea(string gameName)
-        //{
-        //    this.gameService.CreateAndSaveGameIdea(gameName);
-        //}
-
-        //[HttpDelete("api/deletegameid/{gameID}")]
-        //public void DeleteGameIdeaByName(Guid gameID)
-        //{
-        //    this.gameService.DeleteGameByID(gameID);
-        //}
 
         [HttpPut("api/editgamebyid/{gameID}")]
         public JsonResult EditGameIdeaByName(Guid gameID, string newGameName)

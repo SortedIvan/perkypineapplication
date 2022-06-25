@@ -9,6 +9,7 @@ namespace helper_classes.GameCharacterHelper
     public class GameCharacterLoreAlgorithm
     {
         private FileReader fileReader;
+        private static string characterOccupationPreset = "Their occupation is: ";
         public GameCharacterLoreAlgorithm()
         {
             this.fileReader = new FileReader();
@@ -26,7 +27,7 @@ namespace helper_classes.GameCharacterHelper
             string[] hairstyles = this.fileReader.GetHairStyles();
             string[] haircolors = this.fileReader.GetHairColor();
 
-            hairStyle += $"They have {haircolors[randomHairColorInt]}, {hairstyles[randomHairStyleInt]} hairstyle.";
+            hairStyle += $"Type of hair: {haircolors[randomHairColorInt]}, {hairstyles[randomHairStyleInt]} hairstyle.";
             return hairStyle;
         }
 
@@ -36,7 +37,7 @@ namespace helper_classes.GameCharacterHelper
             Random randomSpaceJob = new Random();
             int randomSpaceJobInt = randomSpaceJob.Next(1, 19);
 
-            return $"Their occupation is {this.fileReader.GetSpaceJobs()[randomSpaceJobInt]}.";
+            return $"{characterOccupationPreset} {this.fileReader.GetSpaceJobs()[randomSpaceJobInt]}.";
         }
 
         public string CharacterFantasyJobBuilder()
@@ -44,7 +45,7 @@ namespace helper_classes.GameCharacterHelper
             Random randomFantasyJob = new Random();
             int randomFantasyJobInt = randomFantasyJob.Next(1, 70);
 
-            return $"Their occupation is {this.fileReader.GetFantasyJobs()[randomFantasyJobInt]}.";
+            return $"{characterOccupationPreset} {this.fileReader.GetFantasyJobs()[randomFantasyJobInt]}.";
         }
 
         public string CharacterScifiJobBuilder()
@@ -52,7 +53,7 @@ namespace helper_classes.GameCharacterHelper
             Random randomSciFiJob = new Random();
             int randomSciFiJobInt = randomSciFiJob.Next(1, 74);
 
-            return $"Their occupation is {this.fileReader.GetScifiJobs()[randomSciFiJobInt]}.";
+            return $"{characterOccupationPreset} {this.fileReader.GetScifiJobs()[randomSciFiJobInt]}.";
             
         }
         #endregion

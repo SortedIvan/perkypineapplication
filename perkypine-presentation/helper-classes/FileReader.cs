@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,22 @@ namespace helper_classes
 {
     public class FileReader
     {
+        private static string hairstylesFile = "hair.txt";
+        private static string haircolorsFile = "haircolor.txt";
+        private static string spacejobsFile = "spacetheme.txt";
+        private static string scifijobsFIle = "scifi.txt";
+        private static string fantasyjobsFile = "fantasy.txt";
+        private static string generaltraitsFile = "generalcharacteristics.txt";
+        private static string keysentencesFile = "keysentencescharacter1.txt";
+
+        string hairstylesFilePath = Path.Combine(Environment.CurrentDirectory, @"FileStorage\", hairstylesFile);
+        string haircolorsFilePath = Path.Combine(Environment.CurrentDirectory, @"FileStorage\", haircolorsFile);
+        string spacejobsFilePath = Path.Combine(Environment.CurrentDirectory, @"CharacterLores\", spacejobsFile);
+        string scifijobsFilePath = Path.Combine(Environment.CurrentDirectory, @"CharacterLores\", scifijobsFIle);
+        string fantasyjobsFilePath = Path.Combine(Environment.CurrentDirectory, @"CharacterLores\", fantasyjobsFile);
+        string generaltraitsFilePath = Path.Combine(Environment.CurrentDirectory, @"GameCharacterStorage\", generaltraitsFile);
+        string keysentencesFilePath = Path.Combine(Environment.CurrentDirectory, @"GameCharacterStorage\", keysentencesFile);
+
         public FileReader()
         {
 
