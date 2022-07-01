@@ -62,20 +62,18 @@ namespace helper_classes.GameCharacterHelper
         public string CharacteristicsBuilder()
         {
             Random randomCharacteristicTrait = new Random();
-            Random randomKeySentence = new Random();
 
             int randomCharacteristicTraitInt1 = randomCharacteristicTrait.Next(1, 146);
             int randomCharacteristicTrainInt2 = randomCharacteristicTrait.Next(1, 146);
-            int randomKeySentenceInt = randomKeySentence.Next(1, 5);
 
             while(randomCharacteristicTraitInt1 == randomCharacteristicTrainInt2)
             {
                 randomCharacteristicTraitInt1 = randomCharacteristicTrait.Next(1, 146);
             }
 
-            return $"{this.fileReader.GetGeneralCharacterTraitsKeySentences()[randomKeySentenceInt]} " +
+            return $"Two things predominant about them, " +
                 $"{this.fileReader.GetGeneralCharacterTraits()[randomCharacteristicTraitInt1]} and " +
-                $"{this.fileReader.GetGeneralCharacterTraits()[randomCharacteristicTrainInt2]} are predominant about them.";
+                $"{this.fileReader.GetGeneralCharacterTraits()[randomCharacteristicTrainInt2]}";
         }
 
 
