@@ -4,12 +4,9 @@ namespace models
     public class GameWorld
     {
         public string GameWorldName { get; set; }
-        public List<string> GameWorldRegions
-        { get; set; }
-        public GameWorld(string gameWorldName, List<string> GameWorldRegions)
+        public GameWorld(string gameWorldName)
         {
             this.GameWorldName = gameWorldName;
-            this.GameWorldRegions = GameWorldRegions;
         }
 
     }

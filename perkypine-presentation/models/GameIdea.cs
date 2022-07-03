@@ -8,7 +8,7 @@ namespace models
         public Guid GameIdeaID { get; set; }
         public string GameIdeaName { get; set; }
         
-        //public GameWorld GameWorld { get; set; }
+        public GameWorld GameWorld { get; set; }
         //public GameLore GameLore { get; set; }
         public List<GameCharacter> GameCharacters { get; set; }
         
@@ -18,6 +18,7 @@ namespace models
             this.GameIdeaID = Guid.NewGuid();
             this.GameIdeaName = gameName;
             this.GameCharacters = new List<GameCharacter>();
+            this.GameWorld = new GameWorld("");
         }
 
         public GameIdea(Guid gameIdeaID, string gameName, List<GameCharacter> gameCharacters)

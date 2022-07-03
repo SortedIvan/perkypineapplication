@@ -1,0 +1,20 @@
+﻿using factories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace business_layer.services
+{
+    public class GameWorldService
+    {
+        private GameWorldFactory gameWorldFactory;
+        public GameWorldService()
+        {
+
+        }
+
+        
+    }
+}

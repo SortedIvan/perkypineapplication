@@ -80,5 +80,22 @@ namespace helper_classes
         }
 
         #endregion
+
+        #region World name region
+
+        public string[] GetWorldNameCharacteristicsA()
+        {
+            string[] worldnamecharacteristicsA = System.IO.File.ReadAllLines(@"C:\PerkyPine\perkypineapplication\perkypine-presentation\helper-classes\FileStorage\GamePlanetGenerator\worldsA.txt");
+            return worldnamecharacteristicsA;
+        }
+
+        public string[] GetWorldNameCharacteristicsB()
+        {
+            string[] worldnamecharacteristicsB = System.IO.File.ReadAllLines(@"C:\PerkyPine\perkypineapplication\perkypine-presentation\helper-classes\FileStorage\GamePlanetGenerator\worldsB.txt");
+            return worldnamecharacteristicsB;
+        }
+
+
+        #endregion
     }
 }
