@@ -18,12 +18,7 @@ namespace factories
 
         public GameIdea CreateGameIdea(string gameIdeaName)
         {
-            //var task = nameApi.TestApi();
-            //task.Wait();
-            //var jokeResult = task.Result.fact;
-            //var result = Task.Run(async () => await apiConnector.GetCatFact()).Result.fact;
-            Root result = Task.Run(async () => await apiConnector.GetRandomName(true, "male")).Result;
-            return new GameIdea(gameIdeaName + result.results[0].name.first);
+            return new GameIdea(gameIdeaName);
         }
     }
 }
