@@ -1,16 +1,22 @@
-// import { createApp } from 'vue'
-// import App from './App.vue'
+// import { createApp } from 'vue';
+// import App from './App.vue';
+// import Vue3Material from 'vue3-material';
+// //import { VmButton, VmContainer } from 'vue3-material';
 
-// const app = createApp(App)
-// app.mount('#app')
-// createApp(App).mount('#app')
+// createApp(App)
+//     .use(Vue3Material)
+//     .mount('#app');
 
-import { createApp } from 'vue';
-import App from './App.vue';
-import Vue3Material from 'vue3-material';
-//import { VmButton, VmContainer } from 'vue3-material';
+/////////
+import { createApp } from 'vue'
+import App from './App.vue'
+import WaveUI from 'wave-ui'
+import 'wave-ui/dist/wave-ui.css'
 
-createApp(App)
-    .use(Vue3Material)
-    .mount('#app');
+const app = createApp(App)
 
+new WaveUI(app, {
+  // Some Wave UI options.
+})
+
+app.mount('#app')

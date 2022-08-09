@@ -1,12 +1,14 @@
 <script>
 import MainComponent from './components/GameComponent.vue'
 import GeneratorComponent from './components/GeneratorComponent.vue'
+import CreditsComponent from './components/CreditsComponent.vue';
 
 export default {
   name: 'App',
   components: {
     MainComponent,
-    GeneratorComponent
+    GeneratorComponent,
+    CreditsComponent
   }
 }
 </script>
@@ -16,8 +18,7 @@ export default {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  align-items: center;
-  justify-content: center;
+
 }
 body {
   background-color: rgb(33, 17, 83);
@@ -26,9 +27,11 @@ body {
 </style>
 
 <template>
+<w-app>
   <div>
     <GeneratorComponent/>
     <MainComponent/>
-    
+    <CreditsComponent/>
   </div>
+</w-app>
 </template>
