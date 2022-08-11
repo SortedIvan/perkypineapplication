@@ -30,6 +30,8 @@ ul {
   border-color: rgb(9, 9, 57);
 }
 
+
+
 </style>
 
 <template>
@@ -46,6 +48,7 @@ ul {
         </ul>
     </h3>
   </div>
+
 
   </w-card>
 </template>

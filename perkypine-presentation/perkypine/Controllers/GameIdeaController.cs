@@ -12,10 +12,12 @@ namespace perkypine.Controllers
     {
         private readonly IGameIdeaService gameService;
         private readonly IGameCharacterService gameCharacterService;
-        public GameIdeasController(IGameIdeaService gameService, IGameCharacterService gameCharacterService)
+        private readonly IGameWorldService gameWorldService;
+        public GameIdeasController(IGameIdeaService gameService, IGameCharacterService gameCharacterService, IGameWorldService gameWorldService)
         {
             this.gameService = gameService;
             this.gameCharacterService = gameCharacterService;
+            this.gameWorldService = gameWorldService;
         }
 
         [HttpGet("api/gameideas")]
@@ -101,6 +103,7 @@ namespace perkypine.Controllers
         {
            GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
            randomGame.GameCharacters = this.gameCharacterService.CreateAndReturnAddableCharacters();
+           randomGame.GameWorld = this.gameWorldService.GetGameWorld();
            return randomGame;
         }
 
@@ -109,6 +112,7 @@ namespace perkypine.Controllers
         {
             GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
             randomGame.GameCharacters = this.gameCharacterService.CreateSpaceCharacters();
+            randomGame.GameWorld = this.gameWorldService.GetGameWorld();
             return randomGame;
         }
 
@@ -117,6 +121,7 @@ namespace perkypine.Controllers
         {
             GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
             randomGame.GameCharacters = this.gameCharacterService.CreateFantasyCharacters();
+            randomGame.GameWorld = this.gameWorldService.GetGameWorld();
             return randomGame;
         }
 
@@ -125,6 +130,7 @@ namespace perkypine.Controllers
         {
             GameIdea randomGame = this.gameService.CreateReturnableGameIdea(gameName);
             randomGame.GameCharacters = this.gameCharacterService.CreateSciFiCharacters();
+            randomGame.GameWorld = this.gameWorldService.GetGameWorld();
             return randomGame;
         }
         #endregion

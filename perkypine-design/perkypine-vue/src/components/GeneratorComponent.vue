@@ -1,6 +1,18 @@
 <script>
+import axios from 'axios';
 export default {
   data() {
+    return{
+      games:[]
+    }
+  }, 
+  methods:{
+    fetchData(gameName){
+      axios.get("https://localhost:44387/GameIdeas/api/getrandomfantasygame/" + gameName)
+      .then((response) => {
+        this.games = response.data;
+      })
+    }
   }
 }
 </script>
@@ -84,6 +96,31 @@ ul {
 .radioButtons{
     color: rgb(193, 50, 3);
 }
+
+a.button3{
+display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0;
+border-radius:2em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color:#4eb5f1;
+text-align:center;
+transition: all 0.2s;
+}
+a.button3:hover{
+background-color:#4095c6;
+}
+@media all and (max-width:30em){
+a.button3{
+display:block;
+margin:0.2em auto;
+}
+}
+
 </style>
 
 <template>
@@ -91,9 +128,12 @@ ul {
     <w-card class = "inputUI">
         <w-input
             class="mb4"
-            placeholder="Enter your game name here">
+            placeholder="Enter your game name here"
+            v-on:click="fetchData('cool game idea')">
         </w-input>
-        <div class = "buttonPosition"><w-button>Generate random idea</w-button></div>
+        <div class = "buttonPosition">
+          <a v-on:click="fetchData('cool game idea')">Generate new idea</a>
+        </div>
         <div class = "spinnerAnimation">
             <div class="looping-rhombuses-spinner">
             <div class="rhombus"></div>
@@ -101,6 +141,14 @@ ul {
             <div class="rhombus"></div>
             </div>
         </div>
+
+        <ul>
+          <li v-for="game in this.games" v-bind:key= "game.GameIdeaName">
+              <h3>
+                {{game}}
+              </h3>
+          </li>
+        </ul>
     </w-card>
   </div>
 </template>
