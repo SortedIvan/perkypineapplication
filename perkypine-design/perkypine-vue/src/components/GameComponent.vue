@@ -15,19 +15,10 @@ ul {
     list-style-type: none;
 }
 
-.cardUI{
-  width: 500px;
-  height: 200px;
+.center {
   display: flex;
-  place-items: center;
-  position: fixed;
-  width: 500px;
-  height: 200px;
-  margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
-  left: 0;
-  right: 0;
-  background-color:rgb(145, 172, 245);
-  border-color: rgb(9, 9, 57);
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -35,7 +26,6 @@ ul {
 </style>
 
 <template>
-<w-card shadow class="cardUI">
   <div class = "center">
     <h3>
       Your unique title: {{this.game.gameName}}
@@ -48,7 +38,4 @@ ul {
         </ul>
     </h3>
   </div>
-
-
-  </w-card>
 </template>

@@ -121,10 +121,14 @@ margin:0.2em auto;
 }
 }
 
+
+/* Sticky note styling */
+
 </style>
 
 <template>
   <div>
+
     <w-card class = "inputUI">
         <w-input
             class="mb4"
@@ -132,7 +136,7 @@ margin:0.2em auto;
             v-on:click="fetchData('cool game idea')">
         </w-input>
         <div class = "buttonPosition">
-          <a v-on:click="fetchData('cool game idea')">Generate new idea</a>
+          <a v-on:click="fetchData('cool game idea')" class="button3">Generate</a>
         </div>
         <div class = "spinnerAnimation">
             <div class="looping-rhombuses-spinner">

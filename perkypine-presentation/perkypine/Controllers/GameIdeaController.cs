@@ -1,4 +1,5 @@
 ﻿using business_layer.interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using models;
 using System;
@@ -98,6 +99,7 @@ namespace perkypine.Controllers
 
         #region Different types of random games API's
         // Returning a random idea API (highest priority as of right now)
+        [EnableCors("AllowOrigin")]
         [HttpGet("api/getrandomgameidea/{gameName}")]
         public GameIdea GetRandomGameIdea(string gameName)
         {
@@ -107,6 +109,7 @@ namespace perkypine.Controllers
            return randomGame;
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpGet("api/getrandomspacegame/{gameName}")]
         public GameIdea GetRandomSpaceGameIdea(string gameName)
         {
@@ -116,6 +119,7 @@ namespace perkypine.Controllers
             return randomGame;
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpGet("api/getrandomfantasygame/{gameName}")]
         public GameIdea GetRandomFantasyGameIdea(string gameName)
         {
@@ -125,6 +129,7 @@ namespace perkypine.Controllers
             return randomGame;
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpGet("api/getrandomscifigame/{gameName}")]
         public GameIdea GetRandomSciFiGameIdea(string gameName)
         {
