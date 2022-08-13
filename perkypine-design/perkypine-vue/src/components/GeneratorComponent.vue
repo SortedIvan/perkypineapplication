@@ -3,16 +3,26 @@ import axios from 'axios';
 export default {
   data() {
     return{
-      games:[]
+      games:[],
+      gameNameSubmit: "",
+      isLoadingGame: false
     }
   }, 
   methods:{
+    sleep(milliseconds) {
+    const start = Date.now();
+    while (Date.now() - start < milliseconds);
+    },
     fetchData(gameName){
+      this.isLoadingGame = true
+      this.games = []
       axios.get("https://localhost:44387/GameIdeas/api/getrandomfantasygame/" + gameName)
       .then((response) => {
         this.games = response.data;
+        this.isLoadingGame = false;
       })
     }
+
   }
 }
 </script>
@@ -133,18 +143,24 @@ margin:0.2em auto;
         <w-input
             class="mb4"
             placeholder="Enter your game name here"
-            v-on:click="fetchData('cool game idea')">
+            v-model="this.gameNameSubmit">
         </w-input>
         <div class = "buttonPosition">
-          <a v-on:click="fetchData('cool game idea')" class="button3">Generate</a>
+          <a v-on:click="fetchData(this.gameNameSubmit)" class="button3">Generate</a>
         </div>
-        <div class = "spinnerAnimation">
+        <div v-if="this.isLoadingGame">
+          <div class = "spinnerAnimation">
             <div class="looping-rhombuses-spinner">
             <div class="rhombus"></div>
             <div class="rhombus"></div>
             <div class="rhombus"></div>
             </div>
+          </div>
         </div>
+        <div v-else>
+
+        </div>
+
 
         <ul>
           <li v-for="game in this.games" v-bind:key= "game.GameIdeaName">
