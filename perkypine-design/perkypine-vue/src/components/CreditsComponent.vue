@@ -6,14 +6,17 @@ export default {
 </script>
 
 <style>
+@import url('http://fonts.cdnfonts.com/css/common-pixel');
 .creditsElement{
   position: fixed;
   top: 45vw;
   left: 50vw;
   transform: translate(-50%, -50%);
   font-size: 0.8vw;
-  font-family: 'Oswald', sans-serif;
+  /* font-family: 'Oswald', sans-serif; */
+  font-family: 'Common Pixel', sans-serif;
   color: white;
+
 }
 </style>
 

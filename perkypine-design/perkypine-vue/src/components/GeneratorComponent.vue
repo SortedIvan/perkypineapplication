@@ -1,4 +1,5 @@
 <script>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Orbitron" />
 import axios from 'axios';
 const fantasyUrl = "https://localhost:44387/GameIdeas/api/getrandomfantasygame/";
 const scifiUrl = "https://localhost:44387/GameIdeas/api/getrandomfantasygame/";
@@ -93,7 +94,8 @@ li {
   left: 0;
   right: 0;
   background-color:rgb(131, 117, 180);
-  border-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);;
+  border-radius: 8% !important;
 }
 
 .looping-rhombuses-spinner, .looping-rhombuses-spinner * {
@@ -182,12 +184,20 @@ margin:0.2em auto;
 }
 }
 
+/* @font-face {
+
+
+} */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;669&display=swap');
 .siteDescr{
   opacity: .6;
+  font-family: 'Orbitron', sans-serif; 
 }
 
+@import url('http://fonts.cdnfonts.com/css/common-pixel');
 .siteTitle{
   justify-content: center;
+  font-family: 'Common Pixel', sans-serif;
 }
 
 .worldName{
@@ -216,12 +226,17 @@ img:hover {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+.gameDisplay:not(#img){
+  mix-blend-mode:difference;
+  color:white;
+  font-family: 'Orbitron', sans-serif; 
+}
 </style>
 
 <template>
   <div>
     
-    <w-card class = "inputUI">
+    <w-card class = "inputUI" shadow = true>
       <h2 class = "siteTitle">PerkyPine</h2>
       <h3 class = "siteDescr">Generate short, unique game lore with three characters to go with it.</h3>
       <br>
@@ -253,11 +268,10 @@ img:hover {
         <br>
         <br>
         <div class = "gameDisplay" v-if = "!Object.keys(this.newGame).length == 0">
-          <h3 class = "siteDescr">Game world:</h3>
-            
             <li v-for = "gameWorld in this.newGame.gameWorld" v-bind:key="gameWorld">
-              <img v-bind:src= "this.planetImageUrl" alt = "Wow!"/> <p class = "worldName">{{gameWorld}}</p>
+             <h3 class = "siteDescr">Game world:</h3><p class = "worldName">{{gameWorld}}</p> 
             </li>
+            <img v-bind:src= "this.planetImageUrl" alt = "credits: https://app.pixelencounter.com/"/>
           <h3 class = "siteDescr">Game characters:</h3>
             <li v-for = "gameCharacters in this.newGame.gameCharacters" v-bind:key="gameCharacters">
               <p class = "siteDescr">{{gameCharacters.characterName}}</p> - {{gameCharacters.characterLore}}
