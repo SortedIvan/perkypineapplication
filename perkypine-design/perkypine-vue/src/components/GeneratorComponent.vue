@@ -76,6 +76,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;669&display=swap');
 ul {
     list-style-type: none;
 }
@@ -154,6 +155,7 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Orbitron', sans-serif;
 }
 .radioButtons{
     color: rgb(193, 50, 3);
@@ -173,6 +175,7 @@ background-color:#4eb5f1;
 text-align:center;
 transition: all 0.2s;
 cursor: pointer;
+font-family: 'Orbitron';
 }
 a.button3:hover{
 background-color:#4095c6;
@@ -188,7 +191,7 @@ margin:0.2em auto;
 
 
 } */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;669&display=swap');
+
 .siteDescr{
   opacity: .6;
   font-family: 'Orbitron', sans-serif; 
@@ -229,6 +232,9 @@ img:hover {
 .gameDisplay:not(#img){
   mix-blend-mode:difference;
   color:white;
+  font-family: 'Orbitron', sans-serif; 
+}
+w-input{
   font-family: 'Orbitron', sans-serif; 
 }
 </style>
