@@ -27,15 +27,5 @@ ul {
 
 <template>
   <div class = "center">
-    <h3>
-      Your unique title: {{this.game.gameName}}
-      <br/>
-      Game characters: 
-        <ul>
-          <li v-for="character in this.game.gameCharacters" v-bind:key="character.characterName">
-              <vm-card>{{character.characterName}} -{{character.characterLore}}</vm-card>
-          </li>
-        </ul>
-    </h3>
   </div>
 </template>

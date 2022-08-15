@@ -1,11 +1,28 @@
 <script>
 import axios from 'axios';
+const fantasyUrl = "https://localhost:44387/GameIdeas/api/getrandomfantasygame/";
+const scifiUrl = "https://localhost:44387/GameIdeas/api/getrandomfantasygame/";
+const spaceUrl =  "https://localhost:44387/GameIdeas/api/getrandomscifigame/";
+const worldAPI = "https://app.pixelencounter.com/api/basic/planets?frame=1000&disableBackground=true&disableStars=true";
+const urls = [fantasyUrl,scifiUrl,spaceUrl]
+// const options = {
+//   method: 'GET',
+//   mode: 'no-cors'
+// };
+var randomUrl = "";
+function timer() {
+  setTimeout(function () {
+    console.log("done");}, 2000);
+}
 export default {
   data() {
     return{
       games:[],
       gameNameSubmit: "",
-      isLoadingGame: false
+      isLoadingGame: false,
+      newGame: {},
+      gameWorldPhoto: "",
+      planetImageUrl: worldAPI
     }
   }, 
   methods:{
@@ -13,15 +30,45 @@ export default {
     const start = Date.now();
     while (Date.now() - start < milliseconds);
     },
+    getRandomGameType(){
+      let x = Math.floor(Math.random() * 2);
+      return x;
+    },
+    getRandomWorldImage(){
+      var randomUrl1 = "https://app.pixelencounter.com/api/basic/planets?frame=1000";
+      var randomUrl2 = "&disableBackground=true&disableStars=true";
+      let x = Math.floor(Math.random() * 20000 + 1);
+      this.planetImageUrl = randomUrl1 + x + randomUrl2; 
+    },
     fetchData(gameName){
       this.isLoadingGame = true
       this.games = []
-      axios.get("https://localhost:44387/GameIdeas/api/getrandomfantasygame/" + gameName)
+      this.newGame = {}
+      randomUrl = urls[this.getRandomGameType()];
+      axios.get(randomUrl + gameName)
       .then((response) => {
+        timer();
+        this.newGame = response.data;
         this.games = response.data;
         this.isLoadingGame = false;
+        console.log(this.games);
+        console.log("THIS IS THE GAMES")
       })
-    }
+    },
+    response() {
+   var urlCreator = window.URL || window.webkitURL;
+   var imageUrl = urlCreator.createObjectURL(this.response);
+   document.querySelector("#image").src = imageUrl;
+  },
+    // fetchRandomWorldPhoto(){
+    //   fetch(worldAPI, options)
+    //   .then(response => response.blob())
+    //   .then(imageBlob => {
+    //       // Then create a local URL for that image and print it 
+    //       this.gameWorldPhoto = URL.createObjectURL(imageBlob);
+    //       console.log(this.gameWorldPhoto + "hi")
+    //   });
+    // }
 
   }
 }
@@ -30,6 +77,9 @@ export default {
 <style>
 ul {
     list-style-type: none;
+}
+li {
+  list-style-type: none;
 }
 .inputUI{
   width: 500px;
@@ -43,7 +93,7 @@ ul {
   left: 0;
   right: 0;
   background-color:rgb(131, 117, 180);
-  border-color: rgb(9, 9, 57);
+  border-color: rgb(255, 255, 255);
 }
 
 .looping-rhombuses-spinner, .looping-rhombuses-spinner * {
@@ -120,6 +170,7 @@ color:#FFFFFF;
 background-color:#4eb5f1;
 text-align:center;
 transition: all 0.2s;
+cursor: pointer;
 }
 a.button3:hover{
 background-color:#4095c6;
@@ -131,22 +182,56 @@ margin:0.2em auto;
 }
 }
 
+.siteDescr{
+  opacity: .6;
+}
 
-/* Sticky note styling */
+.siteTitle{
+  justify-content: center;
+}
+
+.worldName{
+  margin-top: 5px;
+}
+/* image shake */
+img:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 
 </style>
 
 <template>
   <div>
-
+    
     <w-card class = "inputUI">
+      <h2 class = "siteTitle">PerkyPine</h2>
+      <h3 class = "siteDescr">Generate short, unique game lore with three characters to go with it.</h3>
+      <br>
         <w-input
             class="mb4"
-            placeholder="Enter your game name here"
+            placeholder="Give your game a name"
             v-model="this.gameNameSubmit">
         </w-input>
         <div class = "buttonPosition">
-          <a v-on:click="fetchData(this.gameNameSubmit)" class="button3">Generate</a>
+          <a v-on:click="fetchData(this.gameNameSubmit); this.getRandomWorldImage()" class="button3">Generate</a>
         </div>
         <div v-if="this.isLoadingGame">
           <div class = "spinnerAnimation">
@@ -158,17 +243,26 @@ margin:0.2em auto;
           </div>
         </div>
         <div v-else>
-
         </div>
-
-
-        <ul>
-          <li v-for="game in this.games" v-bind:key= "game.GameIdeaName">
-              <h3>
-                {{game}}
-              </h3>
+        <!-- <ul>
+          <li v-for="game in this.games" v-bind:key= "game.gameIdeaName">
+                <h3>{{game.gameCharacters}}</h3>    
           </li>
-        </ul>
+        </ul> -->
+        <br>
+        <br>
+        <br>
+        <div class = "gameDisplay" v-if = "!Object.keys(this.newGame).length == 0">
+          <h3 class = "siteDescr">Game world:</h3>
+            
+            <li v-for = "gameWorld in this.newGame.gameWorld" v-bind:key="gameWorld">
+              <img v-bind:src= "this.planetImageUrl" alt = "Wow!"/> <p class = "worldName">{{gameWorld}}</p>
+            </li>
+          <h3 class = "siteDescr">Game characters:</h3>
+            <li v-for = "gameCharacters in this.newGame.gameCharacters" v-bind:key="gameCharacters">
+              <p class = "siteDescr">{{gameCharacters.characterName}}</p> - {{gameCharacters.characterLore}}
+            </li>
+        </div>
     </w-card>
   </div>
 </template>

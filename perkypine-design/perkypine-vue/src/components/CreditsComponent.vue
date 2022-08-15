@@ -7,10 +7,13 @@ export default {
 
 <style>
 .creditsElement{
-    display:flex;
-    bottom: 10;
-    right: 0;
-    margin-left: 20px;
+  position: fixed;
+  top: 45vw;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  font-size: 0.8vw;
+  font-family: 'Oswald', sans-serif;
+  color: white;
 }
 </style>
 

@@ -53,7 +53,7 @@ namespace perkypine
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "perkypine v1"));
             }
-
+            
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("AllowOrigin");
