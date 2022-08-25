@@ -237,6 +237,10 @@ img:hover {
 w-input{
   font-family: 'Orbitron', sans-serif; 
 }
+.planetIMG{
+  width: 200px;
+  height: 200px;
+}
 </style>
 
 <template>
@@ -277,7 +281,7 @@ w-input{
             <li v-for = "gameWorld in this.newGame.gameWorld" v-bind:key="gameWorld">
              <h3 class = "siteDescr">Game world:</h3><p class = "worldName">{{gameWorld}}</p> 
             </li>
-            <img v-bind:src= "this.planetImageUrl" alt = "credits: https://app.pixelencounter.com/"/>
+            <img class = "planetIMG" v-bind:src= "this.planetImageUrl" alt = "credits: https://app.pixelencounter.com/"/>
           <h3 class = "siteDescr">Game characters:</h3>
             <li v-for = "gameCharacters in this.newGame.gameCharacters" v-bind:key="gameCharacters">
               <p class = "siteDescr">{{gameCharacters.characterName}}</p> - {{gameCharacters.characterLore}}
