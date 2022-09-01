@@ -1,46 +1,64 @@
 import discord
+import requests
 from jsonScraper import jsonFormatter
 
-token = "MTAxNDU2NjUwNDA5NzkyMzE0Mg.Gb3eE_.Hg2ipgO2Op60HAAFhHg8NukFE6Zp26ZhHRGX2g"
-
-pixelPlanetUrl = "https://app.pixelencounter.com/api/basic/planets?frame=1000&disableBackground=true&disableStars=true"
+token = ""
+ 
 gameUrl = "https://localhost:44387/GameIdeas/api/getrandomfantasygame/123"
 
 client = discord.Client(intents=discord.Intents.default())
 
+planetUrl = "https://app.pixelencounter.com/api/basic/planets?frame=1000&disableBackground=true&disableStars=true"
+
+
+
+async def fetchImage():
+    img_data = requests.get(planetUrl).content
+    with open('worldImage.jpg', 'wb') as handler:
+        handler.write(img_data)
+        
 @client.event
 async def on_message(message):
 
     lore = jsonFormatter()
-
+    image = fetchImage()
+    file = discord.File("worldImage.jpg", filename="worldImage.jpg")
+    
     if message.author == client.user:
         return
 
-    if message.content.split(' ')[0] == '!perkyidea':
-        query = message.content.replace('!perkyidea', '')
+    if message.content.split(' ')[0] == '!perkylore':
+        query = message.content.replace('!perkylore', '')
 
     embed = discord.Embed(
-        title="Randomly generated planet!",
-        url = pixelPlanetUrl
+        title="Randomly generated lore!",
     )
 
-    embed.set_thumbnail(
-        url = gameUrl
+    embed.set_thumbnail(url="attachment://worldImage.jpg")
+    embed.add_field(
+        name = "World name",
+        value = f"{lore['gameWorld']['gameWorldName']}",
+        inline=True
+    )
+    
+    # Adding all of the characters as an embed, making sure the length is always the right value
+    embed.add_field(
+        name = f"{lore['gameCharacters'][0]['characterName']}",
+        value = f"{lore['gameCharacters'][0]['characterLore']}",
+        inline=False
     )
     embed.add_field(
-        name = "Has asks",
-        value = f"{product['market']['hasAsks']}"
+        name = f"{lore['gameCharacters'][1]['characterName']}",
+        value = f"{lore['gameCharacters'][1]['characterLore']}",
+        inline=False
     )
     embed.add_field(
-        name = "Lowest ask & lowest ask size",
-        value = f"Lowest ask: {product['market']['lowestAsk']} | Lowest ask size {product['market']['lowestAskSize']}"
+        name = f"{lore['gameCharacters'][2]['characterName']}",
+        value = f"{lore['gameCharacters'][2]['characterLore']}",
+        inline=False
     )
-
-    embed.add_field(
-        name = "Last sale & sale size",
-        value = f"Sale: {product['market']['lastSale']} | Last sale size: {product['market']['lastSaleSize']}"
-    )
-    await message.channel.send(embed=embed)
+    await image
+    await message.channel.send(file = file, embed=embed)
 
 
 
