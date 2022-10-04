@@ -1,4 +1,13 @@
 # PerkyPine
 Perkypine is an API service that generates:
-> A game, with a short description of world building, gameplay and game name.
-> 3 game characters, with randomly generated names and lore
+> A game, with a short description of world building, gameplay and game name.<br/>
+> 3 game characters, with randomly generated names and lore <br/>
+
+There are currently 3 different API's, all of them generating different types of lore, based on user input <br/>
+ - Fantasy lore generator API 
+ - Space lore generator API
+ - Middleage lore generator API
+ 
+ An example generation can be seen below: <br/>
+ 
+ 
