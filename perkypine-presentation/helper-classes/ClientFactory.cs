@@ -18,10 +18,5 @@ namespace helper_classes
         {
             return new HttpClient();
         }
-
-        private string MimoNigga()
-        {
-            return "mimo retard";
-        }
     }
 }
